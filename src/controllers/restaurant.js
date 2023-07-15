@@ -2,11 +2,12 @@ import restaurantModel from "../models/restaurantModel.js";
 
 export const getRestaurantsFood = async (req, res) => {
   try {
-    const { name, region, status } = req.query;
+    const { name, region, status, type } = req.query;
     const restaurants = await restaurantModel.find({
       foodName: { $regex: name || "", $options: "i" },
       region: { $regex: region || "", $options: "i" },
       status: { $regex: status || "", $options: "i" },
+      foodType: { $regex: type || "", $options: "i" }
     });
     if (restaurants.length === 0)
       return res.status(404).json({
