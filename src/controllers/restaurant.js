@@ -68,7 +68,8 @@ export const updateRestaurant = async (req, res) => {
   const {
     foodName,
     foodImage,
-    grabFoodLinks,
+    goFoodLink,
+    grabFoodLink,
     foodType,
     region,
     status,
@@ -80,7 +81,8 @@ export const updateRestaurant = async (req, res) => {
       {
         foodName,
         foodImage,
-        grabFoodLinks,
+        goFoodLink,
+        grabFoodLink,
         foodType,
         region,
         status,
@@ -98,7 +100,6 @@ export const updateRestaurant = async (req, res) => {
     console.log(err);
   }
 };
-
 export const deleteRestaurant = async (req, res) => {
   try {
     const restaurant = await restaurantModel.findByIdAndDelete(req.params.id);
